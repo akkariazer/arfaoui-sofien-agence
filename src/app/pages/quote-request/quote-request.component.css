@@ -1,0 +1,130 @@
+.page-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.quote-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.5rem 0 2rem;
+}
+
+.quote-hero h1 {
+  margin: 0.75rem 0;
+  color: var(--brand-blue-dark);
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.quote-hero p,
+.quote-side-card p,
+.result-card p {
+  color: var(--brand-muted);
+  line-height: 1.7;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--brand-orange-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 1.5rem;
+}
+
+.quote-form-card,
+.quote-side-card,
+.result-card {
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.quote-form-card h2,
+.quote-side-card h2,
+.result-card h3 {
+  margin: 0 0 1rem;
+  color: var(--brand-blue-dark);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quote-side-card {
+  background:
+    linear-gradient(180deg, rgba(28, 93, 168, 0.04) 0%, rgba(255, 255, 255, 0.98) 100%);
+}
+
+.side-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.side-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.side-row mat-icon,
+.result-card mat-icon {
+  color: var(--brand-orange);
+}
+
+.result-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(28, 93, 168, 0.1);
+}
+
+@media (max-width: 960px) {
+  .quote-hero,
+  .quote-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1.25rem;
+  }
+}

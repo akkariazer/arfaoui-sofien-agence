@@ -1,0 +1,37 @@
+<mat-toolbar class="topbar">
+  <a class="brand-link" routerLink="/">
+    <img class="brand-logo" src="ressources/APP_LOGO.PNG" [alt]="translation().topbar.logoAlt">
+    <div class="brand-copy">
+      <span class="brand-title">{{ agencyName }}</span>
+      <span class="brand-subtitle">{{ translation().topbar.subtitle }}</span>
+    </div>
+  </a>
+
+  <div class="topbar-spacer"></div>
+
+  <div class="topbar-actions">
+    <nav class="topbar-nav" aria-label="Primary navigation">
+      <a mat-button [routerLink]="['/']" fragment="services">{{ translation().topbar.nav.services }}</a>
+      <a mat-button [routerLink]="['/']" fragment="avantages">
+        {{ translation().topbar.nav.advantages }}
+      </a>
+      <a mat-button [routerLink]="['/']" fragment="contact">{{ translation().topbar.nav.contact }}</a>
+    </nav>
+
+    <button mat-stroked-button [matMenuTriggerFor]="languageMenu" class="language-trigger" type="button">
+      <mat-icon>language</mat-icon>
+      {{ i18n.currentLanguageLabel() }}
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #languageMenu="matMenu">
+  <button
+    mat-menu-item
+    *ngFor="let language of languages"
+    type="button"
+    (click)="changeLanguage(language)"
+  >
+    {{ i18n.languageLabel(language) }}
+  </button>
+</mat-menu>

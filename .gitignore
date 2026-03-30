@@ -1,0 +1,7 @@
+/.angular
+/dist
+/node_modules
+/out-tsc
+
+# IDE
+/.DS_Store

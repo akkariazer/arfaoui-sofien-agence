@@ -1,0 +1,85 @@
+<main class="page-content">
+  <section class="quote-hero">
+    <div>
+      <span class="eyebrow">{{ translation().quoteRequest.hero.eyebrow }}</span>
+      <h1>{{ translation().quoteRequest.hero.title }}</h1>
+      <p>{{ translation().quoteRequest.hero.description }}</p>
+    </div>
+
+    <a class="back-link" mat-stroked-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+      {{ translation().quoteRequest.hero.backHome }}
+    </a>
+  </section>
+
+  <section class="quote-grid">
+    <mat-card class="quote-form-card">
+      <h2>{{ translation().quoteRequest.form.title }}</h2>
+
+      <form [formGroup]="quoteForm" (ngSubmit)="submitRequest()">
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ translation().quoteRequest.form.serviceLabel }}</mat-label>
+            <mat-select formControlName="serviceId">
+              <mat-option *ngFor="let service of translation().home.services" [value]="service.id">
+                {{ service.title }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="quoteForm.controls.serviceId.touched && quoteForm.controls.serviceId.invalid">
+              {{ translation().quoteRequest.form.serviceError }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ translation().quoteRequest.form.durationLabel }}</mat-label>
+            <mat-select formControlName="duration">
+              <mat-option *ngFor="let duration of translation().quoteRequest.durations" [value]="duration.value">
+                {{ duration.label }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="quoteForm.controls.duration.touched && quoteForm.controls.duration.invalid">
+              {{ translation().quoteRequest.form.durationError }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit">
+            {{ translation().quoteRequest.form.submit }}
+          </button>
+          <button mat-stroked-button type="button" (click)="resetForm()">
+            {{ translation().quoteRequest.form.reset }}
+          </button>
+        </div>
+      </form>
+    </mat-card>
+
+    <mat-card class="quote-side-card">
+      <span class="eyebrow">{{ translation().quoteRequest.side.eyebrow }}</span>
+      <h2>{{ translation().quoteRequest.side.title }}</h2>
+      <p>{{ translation().quoteRequest.side.description }}</p>
+
+      <div class="side-list">
+        <div class="side-row" *ngFor="let item of translation().quoteRequest.side.items; let index = index">
+          <mat-icon>{{ sideIcons[index] }}</mat-icon>
+          <span>{{ item }}</span>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+
+  <mat-card class="result-card" *ngIf="requestSent">
+    <mat-icon>task_alt</mat-icon>
+    <div>
+      <h3>{{ translation().quoteRequest.success.title }}</h3>
+      <p>
+        {{
+          i18n.translate('quoteRequest.success.description', {
+            service: selectedServiceTitle,
+            duration: selectedDurationLabel
+          })
+        }}
+      </p>
+    </div>
+  </mat-card>
+</main>

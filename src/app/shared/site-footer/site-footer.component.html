@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <img class="footer-logo" src="ressources/APP_LOGO.PNG" [alt]="translation().topbar.logoAlt">
+      <div>
+        <strong>{{ agencyName }}</strong>
+        <p>{{ translation().footer.description }}</p>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a mat-button [routerLink]="['/']" fragment="services">{{ translation().footer.links.services }}</a>
+      <a mat-button [routerLink]="['/']" fragment="contact">{{ translation().footer.links.contact }}</a>
+      <a mat-button routerLink="/devis">{{ translation().footer.links.quoteRequest }}</a>
+    </div>
+
+    <div class="footer-contact">
+      <a [href]="'mailto:' + agencyEmail">{{ agencyEmail }}</a>
+      <a [href]="agencyPhoneHref">{{ agencyPhone }}</a>
+    </div>
+  </div>
+</footer>

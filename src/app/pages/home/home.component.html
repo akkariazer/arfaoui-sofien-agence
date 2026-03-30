@@ -1,0 +1,89 @@
+<main class="page-content">
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>{{ translation().home.hero.title }}</h1>
+
+      <p class="hero-text">
+        {{ translation().home.hero.description }}
+      </p>
+
+      <a class="quote-cta" mat-raised-button routerLink="/devis">
+        {{ translation().home.hero.quoteCta }}
+      </a>
+
+      <div class="hero-highlights">
+        <div class="highlight-item" *ngFor="let item of translation().home.highlights">
+          <strong>{{ item.value }}</strong>
+          <span>{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <mat-card class="hero-card" appearance="outlined">
+      <span class="hero-card-badge">{{ translation().home.infoCard.eyebrow }}</span>
+      <h2>{{ translation().home.infoCard.title }}</h2>
+      <p>{{ translation().home.infoCard.description }}</p>
+
+      <mat-divider></mat-divider>
+
+      <div class="hero-card-list">
+        <div class="hero-card-row" *ngFor="let item of translation().home.infoCard.items; let index = index">
+          <mat-icon>{{ infoCardIcons[index] }}</mat-icon>
+          <span>{{ item }}</span>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+
+  <section class="services-section" id="services">
+    <div class="section-heading">
+      <span class="eyebrow">{{ translation().home.sections.services.eyebrow }}</span>
+      <h2>{{ translation().home.sections.services.title }}</h2>
+      <p>{{ translation().home.sections.services.description }}</p>
+    </div>
+
+    <div class="services-grid">
+      <mat-card class="service-card" *ngFor="let service of translation().home.services">
+        <div class="service-icon">
+          <mat-icon>{{ service.icon }}</mat-icon>
+        </div>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="benefits-section" id="avantages">
+    <div class="section-heading">
+      <span class="eyebrow">{{ translation().home.sections.benefits.eyebrow }}</span>
+      <h2>{{ translation().home.sections.benefits.title }}</h2>
+    </div>
+
+    <div class="benefits-grid">
+      <mat-card class="benefit-card" *ngFor="let benefit of translation().home.benefits">
+        <mat-icon>check_circle</mat-icon>
+        <h3>{{ benefit.title }}</h3>
+        <p>{{ benefit.description }}</p>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <mat-card class="contact-card">
+      <div class="contact-copy">
+        <span class="eyebrow">{{ translation().home.sections.contact.eyebrow }}</span>
+        <h2>{{ translation().home.sections.contact.title }}</h2>
+        <p>{{ translation().home.sections.contact.description }}</p>
+      </div>
+
+      <div class="contact-actions">
+        <a mat-raised-button color="primary" [href]="'mailto:' + agencyEmail">
+          {{ agencyEmail }}
+        </a>
+        <a mat-stroked-button [href]="agencyPhoneHref">
+          {{ agencyPhone }}
+        </a>
+      </div>
+    </mat-card>
+  </section>
+</main>
